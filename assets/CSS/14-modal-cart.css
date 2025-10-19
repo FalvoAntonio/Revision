@@ -1,0 +1,61 @@
+/* MODALE PANIER */
+
+.Modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 2%;
+    border-radius: var(--border-radius-lg);
+    border-left: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    background-color: var(--bg-primary);
+    padding: var(--spacing-3xl);
+    width: 30%;
+    right: 0;
+    bottom: 2%;
+    transform: translate(100%, 0);
+    transition: transform var(--transition-slow);
+}
+
+.overlay-modal {
+    position: fixed;
+    inset: 0;
+    background: #333333d3;
+    visibility: hidden;
+    transition: visibility var(--transition-slow);
+    z-index: 5;
+}
+
+.button-close {
+    position: absolute;
+    right: var(--spacing-sm);
+    top: var(--spacing-xs);
+    padding: 4px var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-lg);
+    color: white;
+    cursor: pointer;
+    background: green;
+}
+
+/* RESPONSIVE MODAL PANIER */
+@media (max-width: 768px) {
+    .Modal-container {
+        width: 90%;
+        right: 5%;
+        bottom: 5%;
+        top: 5%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .Modal-container {
+        width: 70%;
+        right: 15%;
+        bottom: 15%;
+        top: 15%;
+    }
+}

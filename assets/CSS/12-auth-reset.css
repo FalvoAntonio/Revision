@@ -1,0 +1,43 @@
+/* MOT DE PASSE OUBLIÉ */
+
+h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.container p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+}
+
+button,
+.button-accueil {
+    font-family: var(--font-primary);
+}
+
+button {
+    margin: var(--spacing-sm) 0;
+}
+
+button:hover {
+    background-color: var(--text-secondary);
+}
+
+.button-accueil {
+    padding: 12px var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
+.button-accueil:hover {
+    background-color: var(--text-secondary);
+}

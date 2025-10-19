@@ -1,0 +1,7 @@
+/* CAPTCHA */
+
+.g-recaptcha {
+    margin: var(--spacing-3xl) 0;
+    display: flex;
+    justify-content: center;
+}

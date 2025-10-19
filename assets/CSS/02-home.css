@@ -1,0 +1,438 @@
+/* PAGE D'ACCUEIL */
+
+/* Image header */
+.container-image-header img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 18px;
+    filter: brightness(0.97) contrast(1.05);
+    transition: filter var(--transition-normal);
+}
+
+/* Introduction */
+.accueil {
+    text-align: center;
+
+    /* Titre principal avec effet */
+    &.main-content h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-primary);
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: var(--spacing-4xl);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        display: inline-block;
+        padding-bottom: var(--spacing-sm);
+        font-size: 45px;
+    }
+
+    &.main-content h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    }
+
+    & .introduction h2 {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        line-height: 1.4;
+    }
+
+    .introduction p {
+        font-style: italic;
+        letter-spacing: 1px;
+        margin-top: 70px;
+        font-size: var(--spacing-lg);
+        font-weight: bold;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+    }
+
+    /* FORMATIONS CONTAINER AVEC FLEX-WRAP AUTOMATIQUE */
+    .formations-container {
+        /* display: flex; */
+        /*flex-wrap: wrap;  S'adapte automatiquement ! */
+        justify-content: center;
+        align-items: stretch;
+        background-color: var(--primary-color);
+        padding: var(--spacing-4xl);
+        /* gap: var(--spacing-lg); */
+        width: 100%;
+        margin-top: 100px;
+    }
+
+    .formations-container p {
+        text-align: left;
+        font-family: var(--font-primary);
+        padding: var(--spacing-xs);
+    }
+
+    .formations-container h1 {
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* FORMATION INDIVIDUELLE - RESPONSIVE AUTOMATIQUE */
+    .formation {
+        /* FLEXIBLE : S'adapte automatiquement ! */
+        flex: 1 1 300px;
+        /* grow, shrink, base-width */
+        min-width: 280px;
+        /* Minimum pour mobile */
+        max-width: 350px;
+        /* Maximum pour desktop */
+        border-radius: var(--border-radius-lg);
+        min-height: 30vh;
+        background-color: var(--bg-secondary);
+        box-shadow: var(--shadow-md);
+        /* padding: var(--spacing-lg); */
+        transition: transform 0.2s ease-in-out;
+        border: 3px solid white;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .formation:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgb(255, 255, 255);
+    }
+
+    .formation-image {
+        position: relative;
+        margin: auto;
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+        overflow: hidden;
+        border-radius: var(--spacing-2xl);
+    }
+
+    .formation-image img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+    }
+
+    .formation:hover .formation-image img {
+        transform: scale(1.05);
+    }
+
+    .logo-promo {
+        position: absolute;
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        width: 60px !important;
+        height: 60px !important;
+        z-index: 10;
+        border-radius: var(--border-radius-full);
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Prix et éléments */
+    .formation p:last-of-type {
+        color: var(--primary-color);
+        font-size: var(--spacing-xl);
+        font-weight: bold;
+        margin: var(--spacing-lg) 0;
+    }
+
+    .formation p img {
+        width: var(--spacing-lg);
+        height: var(--spacing-lg);
+        margin-right: var(--spacing-sm);
+        vertical-align: middle;
+    }
+
+    .formation .contenu,
+    .formation .duree,
+    .formation .niveau {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        font-family: var(--font-primary);
+        padding: var(--spacing-xs);
+        margin: 8px 0;
+    }
+
+    .prix-barre {
+        text-decoration: line-through;
+        color: var(--primary-color);
+        font-size: var(--spacing-lg);
+        margin-right: var(--spacing-md);
+    }
+
+    .prix-promo {
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: var(--font-size-3xl);
+    }
+
+    .button-formation {
+        background: linear-gradient(to right, var(--primary-color), var(--primary-light), var(--primary-color));
+        color: white;
+        border: none;
+        letter-spacing: 1px;
+        border-radius: var(--border-radius-2xl);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .button-formation img {
+        width: var(--spacing-lg);
+        height: var(--spacing-lg);
+        margin: 0 8px;
+        vertical-align: middle;
+    }
+
+    .button-formation:hover {
+        background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-light));
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-gold);
+    }
+
+    /* Section principale de présentation */
+    .salon-presentation {
+        display: flex;
+        flex-wrap: wrap;
+        /* S'adapte automatiquement ! */
+        align-items: center;
+        max-width: 1200px;
+        margin: 70px auto;
+        padding: var(--spacing-3xl) var(--spacing-lg);
+        gap: var(--spacing-4xl);
+        background: var(--bg-gradient-primary);
+        border-radius: var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
+        border: 2px solid var(--primary-color);
+    }
+
+    .image-container {
+        flex: 1 1 400px;
+        /* S'adapte automatiquement ! */
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .salon-image {
+        width: 100%;
+        height: 322px;
+        object-fit: cover;
+        border-radius: 1.25rem;
+        box-shadow: var(--shadow-lg);
+        transition: transform var(--transition-normal);
+    }
+
+    .salon-image:hover {
+        transform: scale(1.02);
+    }
+
+    .text-container {
+        flex: 1 1 400px;
+        /* S'adapte automatiquement ! */
+    }
+
+    .text-container h2 {
+        color: var(--text-primary);
+        font-size: 2.2em;
+        font-weight: 600;
+        margin-bottom: var(--spacing-xl);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        display: inline-block;
+        padding-bottom: var(--spacing-sm);
+    }
+
+    .text-container h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        height: 3px;
+        background: linear-gradient(to right, var(--primary-color), var(--primary-light), transparent);
+        border-radius: 2px;
+    }
+
+    .text-container p {
+        color: var(--text-secondary);
+        font-size: 1.1em;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    /* Bouton découvrir */
+    .discover-button {
+        background: linear-gradient(to right, var(--primary-color), var(--primary-light), var(--primary-color));
+        color: white;
+        border: none;
+        letter-spacing: 1px;
+        border-radius: var(--border-radius-2xl);
+        padding: var(--spacing-md) var(--spacing-2xl);
+        margin-top: var(--spacing-xl);
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow-gold);
+        text-decoration: none;
+    }
+
+    .discover-button:hover {
+        background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-light));
+        transform: translateY(-3px);
+        box-shadow: 0 6px var(--spacing-lg) rgba(176, 141, 87, 0.4);
+    }
+
+
+
+    .formations-title p {
+        font-style: italic;
+        letter-spacing: 1px;
+        margin-top: 80px;
+        font-size: var(--spacing-lg);
+        font-weight: bold;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+    }
+
+}
+
+/* Desktop : 3 formations par ligne */
+@media (min-width: 1024px) {
+    .accueil {
+        .formations-container {
+            gap: clamp(30px, 4vw, 60px);
+            /* Espacement adaptatif */
+        }
+
+        .formation {
+            flex: 1 1 calc(33.333% - 40px);
+            /* 3 par ligne */
+            max-width: 350px;
+        }
+
+        .formation-image img {
+            height: 300px;
+        }
+
+    }
+}
+
+/* Tablette : 2 formations par ligne */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .accueil {
+
+        .formations-container {
+            gap: var(--spacing-2xl);
+        }
+
+        .formation {
+            flex: 1 1 calc(50% - 30px);
+            /* 2 par ligne */
+            max-width: 400px;
+        }
+
+        .formation-image img {
+            height: 260px;
+        }
+    }
+}
+
+/* Mobile : 1 formation par ligne */
+@media (max-width: 768px) {
+    .accueil {
+
+        .formations-container {
+            flex-direction: column;
+            /* Une par ligne */
+            align-items: center;
+            padding: var(--spacing-2xl) var(--spacing-md);
+            gap: var(--spacing-lg);
+        }
+
+        .formation {
+            flex: none;
+            /* Pas de flex sur mobile */
+            width: 90%;
+            max-width: 400px;
+            min-width: 280px;
+        }
+
+        .formation-image img {
+            height: 200px;
+        }
+
+        .logo-promo {
+            width: 45px;
+            height: 45px;
+        }
+
+        .salon-presentation {
+            flex-direction: column;
+            text-align: center;
+            gap: var(--spacing-2xl);
+            margin: var(--spacing-lg);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .image-container {
+            flex: none;
+        }
+
+        .text-container {
+            flex: none;
+        }
+
+        .salon-image {
+            height: 300px;
+        }
+
+        .text-container h2 {
+            font-size: 1.8em;
+        }
+
+        .text-container h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+        }
+
+        .text-container p {
+            font-size: 1em;
+            margin: 2px 0;
+        }
+
+        .introduction p,
+        .formations-title p {
+            padding: 0 var(--spacing-lg);
+        }
+
+        .main-content h2 {
+            padding: 0 var(--spacing-lg);
+        }
+
+        .main-content {
+            padding: 0 var(--spacing-sm);
+        }
+    }
+
+    .container-image-header {
+        padding: 0 var(--spacing-md);
+    }
+
+    .container-image-header img {
+        height: 200px;
+        border-radius: 12px;
+    }
+}

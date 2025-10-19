@@ -1,0 +1,125 @@
+/* MENU UTILISATEUR */
+
+.container-menu-compte {
+    position: absolute;
+    top: 186px;
+    right: 0;
+    z-index: 1000;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all var(--transition-normal);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-compte {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-left: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    width: 250px;
+    height: auto;
+    border-bottom-left-radius: var(--border-radius-lg);
+    box-shadow: -2px 2px var(--spacing-sm) rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-2xl) 0;
+    gap: var(--spacing-2xl);
+}
+
+.menu-content a {
+    color: var(--text-primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: block;
+    padding: var(--spacing-xs) var(--spacing-2xl);
+    transition: color var(--transition-normal), transform var(--transition-normal);
+    position: relative;
+}
+
+.menu-content a:hover {
+    color: var(--primary-color);
+    transform: translateX(-var(--spacing-xs));
+}
+
+.icon-login {
+    transition: transform var(--transition-normal);
+}
+
+.icon-login:hover {
+    transform: scale(1.2);
+}
+
+.icon-login.connected {
+    cursor: pointer;
+}
+
+.icon-login.connected:hover {
+    transform: scale(1.1);
+    transition: transform var(--transition-normal);
+}
+
+.menu-content a::before {
+    content: "";
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.menu-content a:hover::before {
+    opacity: 1;
+}
+
+.menu-content a[href*="Deconnexion"] {
+    color: var(--danger-color);
+    border-top: 1px solid #e0e0e0;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-lg);
+}
+
+.menu-content a[href*="Deconnexion"]:hover {
+    color: #b71c1c;
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+.menu-content a[href*="Deconnexion"]::before {
+    background-color: var(--danger-color);
+}
+
+/* RESPONSIVE MENU UTILISATEUR */
+@media (max-width: 768px) {
+    .menu-compte {
+        width: 200px;
+    }
+    
+    .menu-content {
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .menu-content a {
+        font-size: 1rem;
+        padding: var(--spacing-xs) var(--spacing-lg);
+    }
+
+    .container-menu-compte {
+        top: 108px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container-menu-compte {
+        top: 186px;
+    }
+}

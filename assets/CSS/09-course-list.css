@@ -1,0 +1,281 @@
+/* PAGE DES FORMATIONS */
+
+/* Container principal */
+.container-formations {
+    /* 1400px - 60px - 60px ( 120px padding) = 1280px */
+    /* Pour 3 cartes de 350px + 2 gaps de 60px = 1170px minimum requis */
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Padding de 60px */
+    padding: var(--spacing-5xl);  
+}
+
+/* Section avec image d'intro */
+.section img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-5xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.section h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-5xl);
+    color: var(--primary-color);
+}
+
+.section > p {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 80px;
+    text-align: center;
+    margin-top: var(--spacing-4xl);
+}
+
+/* GRID DES FORMATIONS - S'ADAPTE AUTOMATIQUEMENT */
+.formations-grid {
+    /* Utilisation de grid pour un affichage réactif */
+    display: grid; 
+    /* Définition des colonnes */
+    /* repeat pour créer des colonnes réactives */
+    /* minmax pour définir la taille minimale et maximale des colonnes */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: var(--spacing-5xl);
+    margin-bottom: var(--spacing-5xl);
+}
+
+/* CARTES DE FORMATIONS */
+.formation-card {
+    background: var(--bg-primary);
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--spacing-lg);
+    padding: var(--spacing-4xl);
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    min-height: 500px;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay sombre pour lisibilité du texte sur image */
+.formation-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: var(--spacing-lg);
+    z-index: 1;
+}
+
+/* Contenu au-dessus de l'overlay */
+.formation-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.formation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.formation-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: var(--font-size-3xl);
+    font-weight: bold;
+    color: white;
+    margin-bottom: var(--spacing-xl);
+}
+
+.formation-description {
+    text-align: center;
+    color: white;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+    flex-grow: 1;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* PRIX DANS LES CARTES */
+.prix {
+    font-size: 2.5rem;
+    color: #ebc690;
+    font-weight: 900;
+    margin: 35px auto;
+    text-align: center;
+}
+
+.prix-barre {
+    text-decoration: line-through;
+    color: var(--primary-light);
+    font-size: 2rem;
+    margin-right: var(--spacing-md);
+}
+
+.prix-promo {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+/* BOUTONS DES CARTES */
+.btn-decouverte,
+.btn-achat {
+    text-decoration: none;
+    padding: 12px var(--spacing-2xl);
+    background-color: var(--bg-primary);
+    color: #a16204;
+    border-radius: var(--border-radius-2xl);
+    border: 1px solid;
+    letter-spacing: 1px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    margin: var(--spacing-xs) auto;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.btn-decouverte:hover,
+.btn-achat:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* SECTION AVANTAGES */
+.why-choose > h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 100px 0;
+    color: var(--primary-color);
+}
+
+/* GRID DES AVANTAGES - S'ADAPTE AUTOMATIQUEMENT */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-4xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.advantage-item {
+    text-align: center;
+    background: radial-gradient(circle at top left, #fdfaf6, var(--bg-primary) 50%, var(--primary-color) 120%);
+    border-radius: 2rem;
+    padding: 2rem;
+    color: #3e2f1c;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.advantage-item:hover {
+    transform: translateY(-5px);
+}
+
+.advantage-icon {
+    background-color: var(--bg-primary);
+    font-size: 2.5rem;
+    border-radius: 60%;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 3rem;
+    padding: var(--spacing-md);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-md);
+    color: #3e2f1c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.advantage-description {
+    font-size: 1rem;
+    color: #5c4932;
+    line-height: 1.5;
+    max-width: 90%;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* RESPONSIVE FORMATIONS */
+@media (max-width: 768px) {
+    .formations-grid {
+        grid-template-columns: 1fr; /* Une formation par ligne */
+        gap: var(--spacing-2xl);
+    }
+    
+    .formation-card {
+        margin: 0 var(--spacing-md);
+        min-height: 400px;
+    }
+    
+    .formation-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .formation-description {
+        font-size: var(--font-size-base);
+        letter-spacing: 0.5px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+    
+    .why-choose > h2 {
+        font-size: 2.2rem;
+        margin: var(--spacing-4xl) 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .formations-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 formations par ligne */
+        gap: var(--spacing-3xl);
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 avantages par ligne */
+    }
+}
+
+@media (min-width: 1025px) {
+    .formations-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        /* S'adapte : 3 formations si assez de place, sinon 2 */
+    }
+}

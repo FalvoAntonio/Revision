@@ -1,0 +1,80 @@
+/* STYLES GÉNÉRAUX POUR FORMULAIRES */
+
+
+
+/* Boutons de formulaire */
+.btn-form {
+    padding: 12px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light), var(--primary-color));
+    color: white;
+    font-size: var(--font-size-xl);
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius-lg);
+    display: inline-block;
+    transition: all var(--transition-normal);
+}
+
+.btn-form:hover {
+    background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-light));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Préfixe téléphone */
+.tel-prefix {
+    font-family: "Twemoji Country Flags", "Helvetica", "Comic Sans", serif;
+}
+
+/* Classes utilitaires */
+.center {
+    text-align: center;
+}
+
+.space-bottom {
+    margin-bottom: var(--spacing-lg);
+}
+
+.space-top {
+    margin-top: var(--spacing-lg);
+}
+
+/* RESPONSIVE FORMS */
+@media (max-width: 768px) {
+    .title-section {
+        padding: var(--spacing-5xl) var(--spacing-md) var(--spacing-3xl);
+    }
+    
+    .title-section h1 {
+        font-size: 2.2em;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .subtitle {
+        font-size: 1.1em;
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 60%;
+        padding: var(--spacing-4xl);
+    }
+    
+    .title-section {
+        padding: var(--spacing-5xl) var(--spacing-lg) var(--spacing-4xl);
+    }
+    
+    .title-section h1 {
+        font-size: 2.4em;
+    }
+    
+    .subtitle {
+        font-size: 1.2em;
+    }
+}

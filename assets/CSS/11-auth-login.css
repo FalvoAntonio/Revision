@@ -1,0 +1,104 @@
+/* PAGES DE CONNEXION */
+
+.Connexion, .Creation-compte {
+    background-color: var(--bg-secondary);
+    width: auto;
+    margin: 35px;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius-lg);
+}
+
+.Creation-compte h1,
+.Creation-compte p {
+    margin: var(--spacing-sm);
+}
+
+.Mail label,
+.MDP label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.Mail input,
+.MDP input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: var(--spacing-md);
+}
+
+.LogoEyes1, .LogoEyes2 {
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
+    cursor: pointer;
+}
+
+.LogoEyes1 {
+    display: none;
+}
+
+#loginForm {
+    padding: var(--spacing-md);
+}
+
+.Connexion :where(h1,p) {
+    padding: var(--spacing-sm);
+}
+
+.Connexion input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+}
+
+.Creation-compte input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.Creation-compte :where(h1,p) {
+    padding: var(--spacing-sm);
+}
+
+.Connexion a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs);
+    transition: color var(--transition-normal);
+}
+
+.Connexion a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+.Connexion h1,
+.Creation-compte h1 {
+    color: var(--primary-color);
+}
+
+/* RESPONSIVE LOGIN */
+@media (min-width: 1024px) {
+    .Connexion, .Creation-compte {
+        width: 600px;
+        margin: var(--spacing-4xl) auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .Connexion, .Creation-compte {
+        width: 600px;
+        margin: var(--spacing-4xl) auto;
+        
+    }
+}

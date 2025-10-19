@@ -1,0 +1,15 @@
+.flex-container.flex-column p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    color: var(--primary-color); /* Couleur dorée */
+    font-weight: 500; /* Un peu plus gras */
+    margin-bottom: var(--spacing-lg);
+}
+
+.flex-container.flex-column p img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}

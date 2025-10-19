@@ -1,0 +1,139 @@
+version: '3.8'
+# C'est comme une étiquette qui dit à Docker quelle version du format de fichier docker-compose vous utilisez.
+# La version 3.8 est une version récente qui permet d'utiliser toutes les fonctionnalités dont vous aurez besoin.
+
+
+
+#  Cette section liste les différents conteneurs (ou "services") qui formeront votre application.
+#  Pense à chaque service comme à une boîte séparée qui fera un travail spécifique.
+services:
+  # Service pour le site web PHP
+  # Le premier service s'appelle "app" (c'est votre site web). "build: ." indique que Docker doit construire ce service en utilisant
+  # le Dockerfile qui se trouve dans le répertoire actuel (le point "." signifie "ici même").
+  app:
+    build: .
+    container_name: endless_beauty_app_mvc_v2
+    # Donne un nom précis à ce conteneur pour le retrouver facilement quand vous listez tous vos conteneurs Docker. ("endless_beauty_app)
+    ports:
+      # Connecte le port 8000 de votre ordinateur au port 80 du conteneur. C'est comme faire un tunnel :
+      # quand vous tapez "localhost:8000" dans votre navigateur, la demande est envoyée au port 80 du conteneur, où Apache écoute.
+      - "8200:80"
+    volumes:
+      - ./:/var/www/html
+    # C'est comme un dossier partagé entre votre ordinateur et le conteneur. Quand vous modifiez un fichier sur votre ordinateur,
+    # le changement est immédiatement visible dans le conteneur. Très pratique pendant le développement !
+    # env_file:
+    #   - .env
+    environment:
+      # Ces variables d'environnement sont comme des notes post-it disponibles à l'intérieur du conteneur.
+      # Elles permettent à votre application PHP de savoir comment se connecter à la base de données.
+      # Le service "db" dans le docker-compose.yml est simplement votre base de données.
+      # "db" est juste un nom court pour "database" (base de données).
+
+      # Imaginez votre base de données comme un grand classeur où vous rangez toutes les informations importantes de votre site web Endless Beauty :
+      # Les comptes utilisateurs (emails, mots de passe cryptés)
+      # Les informations sur les formations
+      # Les achats des clients
+      # Les vidéos de formation et leurs accès
+
+      # Sans base de données, votre site web serait comme un magasin sans stockage - impossible de se souvenir de qui a acheté quoi, qui a le droit d'accéder à quelle formation, etc.
+      - APP_ENV=${APP_ENV}
+      - DSN=${DSN}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      # Explication simple: Cette ligne indique que le service "app" dépend du service "db" et doit attendre que "db" démarre avant de démarrer lui-même.
+      
+    # Ce que ça fait concrètement:
+
+    # Quand vous lancez docker-compose up, Docker démarre d'abord le service "db"
+    # Une fois que "db" est démarré, Docker lance ensuite le service "app"
+    depends_on:
+      - db 
+    #  Si le conteneur s'arrête pour une raison quelconque (crash, erreur),
+    #  Docker le redémarrera automatiquement. C'est comme un gardien qui veille à ce que votre site reste opérationnel.
+    restart: unless-stopped
+
+
+
+  # Service pour la base de données MySQL
+  db:
+    # ! Je récupère le db pour le PDO
+    # Le deuxième service s'appelle "db" (votre base de données). Au lieu de construire une image personnalisée, 
+    # on utilise directement l'image officielle MySQL version 8.0. C'est pratique car MySQL est déjà configuré correctement.
+    image: mysql:8.0
+    # Comme pour l'app, donne un nom précis au conteneur de la base de données.
+    container_name: endless_beauty_db_mvc_2
+    ports:
+      #  Permet d'accéder à MySQL depuis votre ordinateur sur le port standard 3306.
+      #  Cela peut être utile si vous souhaitez vous connecter directement à la base de données avec un outil comme MySQL Workbench.
+      - "3307:3306"
+    environment:
+      # ? Configure votre base de données MySQL avec :
+
+      # Un mot de passe pour l'utilisateur root (l'administrateur)
+      # Le nom de la base de données à créer
+      # Un nouvel utilisateur avec son mot de passe
+
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      # - MYSQL_DATABASE=${DB_HOST}
+      # - MYSQL_USER=${DB_USER}
+      # - MYSQL_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./_database/mysql_data_mvc:/var/lib/mysql
+      - ./_database/SQL/init:/docker-entrypoint-initdb.d
+    # mysql_data est le nom du volume (défini plus bas dans le fichier)
+    # /var/lib/mysql est le dossier dans le conteneur où MySQL stocke ses données
+    # Ce volume persiste même si vous supprimez le conteneur
+
+    # Analogie: C'est comme avoir un coffre-fort externe où MySQL range toutes ses données.
+    # Même si vous démolissez et reconstruisez la banque (le conteneur), le coffre-fort reste intact avec toutes ses valeurs.
+    
+    restart: unless-stopped
+  #  Si le conteneur s'arrête pour une raison quelconque (crash, erreur),
+  #  Docker le redémarrera automatiquement. C'est comme un gardien qui veille à ce que votre site reste opérationnel.
+
+
+  # Service phpMyAdmin pour gérer la base de données
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin 
+    
+    # Le troisième service utilise phpMyAdmin,
+    # un outil pratique avec une interface web pour gérer votre base de données sans avoir à taper des commandes SQL.
+
+    container_name: endless_beauty_phpmyadmin_mvc_2
+    ports:
+      - "8082:80"
+    # Permet d'accéder à phpMyAdmin en tapant "localhost:8080" dans votre navigateur.
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root_password
+    #  Configure phpMyAdmin pour qu'il se connecte au service "db" avec les identifiants de l'utilisateur root.
+    depends_on:
+      - db
+    restart: unless-stopped
+
+# volumes:
+#   mysql_data_mvc:
+    # Définit formellement le volume nommé "mysql_data" utilisé plus haut. Le "driver: local" signifie que ce volume est stocké localement sur votre ordinateur.
+    # C'est comme créer un espace de stockage spécial pour que MySQL puisse y sauvegarder ses données.
+
+
+# CREATION DE CONTAINERS SUR DOCKER :
+
+    # UNE FOIS MON FICHIER "docker-comose.yml" EST PRET JE PEUX LANCER MA COMMANDE :
+    # docker-compose up -d
+    # Ce qui va me permettre de créer mes containers !
+
+
+
+    # Différence entre Dockerfile et docker-compose.yml
+
+# Dockerfile: C'est la recette pour créer UNE image Docker (comme votre application web)
+# docker-compose.yml: C'est le plan pour assembler PLUSIEURS conteneurs qui fonctionnent ensemble (votre app + base de données + phpMyAdmin)
+
+# Le docker-compose.yml rend beaucoup plus facile la gestion d'une application complète avec plusieurs parties qui doivent communiquer entre elles.
+
+
+
+

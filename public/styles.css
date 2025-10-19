@@ -1,0 +1,14 @@
+/* === IMPORTS === */
+@import '../assets/css/01-variables.css';
+@import '../assets/css/00-base.css';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* IMPORTS DES COMPOSANTS */
+@import '../assets/css/10-header.css';
+@import '../assets/css/06-footer.css';
+@import '../assets/css/14-modal-cart.css';
+@import '../assets/css/15-search-modal.css';
+@import '../assets/css/19-flash-message.css';
+@import '../assets/css/22-mails.css';
+@import '../assets/css/23-message-flash.css';
+@import '../assets/css/13-user-menu.css';

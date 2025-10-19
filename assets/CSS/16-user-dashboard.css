@@ -1,0 +1,105 @@
+/* TABLEAU DE BORD */
+
+.Tableaudebord-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.Tableaudebord-Blocs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    justify-content: center;
+    align-items: stretch;
+}
+
+.Tableaudebord-card {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Tableaudebord-card a {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.Tableaudebord-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.Tableaudebord-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.Tableaudebord-card.rdv::before {
+    background: linear-gradient(90deg, #ebdac2, var(--primary-color));
+}
+
+.Tableaudebord-card.profil::before {
+    background: linear-gradient(90deg, #f1dfd1, #b97a57);
+}
+
+.Tableaudebord-card.achats::before {
+    background: linear-gradient(90deg, #e6c8a1, var(--primary-dark));
+}
+
+.Tableaudebord-card.documents::before {
+    background: linear-gradient(90deg, #f8e6d1, #c49a6c);
+}
+
+.Tableaudebord-card.parametres::before {
+    background: linear-gradient(90deg, #dac3aa, #a47551);
+}
+
+.Icones-tableaudebord {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--spacing-lg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform var(--transition-normal);
+}
+
+.Tableaudebord-card:hover .Icones-tableaudebord {
+    transform: scale(1.1);
+}
+
+.Tableaudebord-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.Tableaudebord-card p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}

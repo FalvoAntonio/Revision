@@ -1,0 +1,44 @@
+[
+      {
+        "id": 1,
+        "titre": "Manucure Russe",
+        "contenu": "Gainage + couleur sous cuticule",
+        "duree": "1H30 à 2H",
+        "prix": 150,
+        "bouton": "Découvrir cette formation"
+      },
+      {
+        "id": 2,
+        "titre": "Extension Gel X",
+        "contenu": "Techniques d'extension Gel X",
+        "duree": "2H à 2H30",
+        "prix": 200,
+        "bouton": "Découvrir cette formation"
+      },
+      {
+        "id": 3,
+        "titre": "Beauté des pieds",
+        "contenu": "Pédicure russe + gainage",
+        "duree": "1H30 à 2H",
+        "prix": 180,
+        "bouton": "Découvrir cette formation"
+      },
+      {
+        "id": 4,
+        "titre": "Soin anti-callosité des pieds",
+        "contenu": "Traitement & soin des callosités",
+        "duree": "1H à 1H30",
+        "prix": 120,
+        "bouton": "Découvrir cette formation"
+      },
+      {
+        "id": 5,
+        "titre": "PACK COMPLET",
+        "contenu": "Tous les modules en un seul achat",
+        "duree": "Environ 8H",
+        "prix": 450,
+        "prix_original": 500,
+        "reduction": true,
+        "bouton": "Découvrir cette formation"
+      }
+    ]

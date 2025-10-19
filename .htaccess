@@ -1,0 +1,18 @@
+# Activer le moteur de réécriture
+RewriteEngine On
+
+# Définir le chemin de base si le projet n'est pas à la racine
+RewriteBase /public/
+
+# Définir le fichier index par défaut
+DirectoryIndex /public/index.php
+
+# Si la ressource demandée existe en fichier, on ne fait rien
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+
+# Si la ressource demandée existe en dossier, on ne fait rien
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Sinon, on redirige tout vers index.php
+RewriteRule ^ index.php [QSA,L]

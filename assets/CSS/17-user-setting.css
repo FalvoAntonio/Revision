@@ -1,0 +1,187 @@
+/* PAGE PARAMÈTRES */
+.settings-container
+{
+
+    &.container {
+        max-width: 800px;
+        margin: var(--spacing-4xl) auto;
+        padding: var(--spacing-3xl);
+        background: var(--bg-primary);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-lg);
+        border: 2px solid var(--primary-color);
+    }
+    
+    h1 {
+        text-align: center;
+        color: var(--secondary-color);
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-3xl);
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    
+    h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 3px;
+        background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        border-radius: 2px;
+    }
+    
+    section {
+        background: var(--bg-tertiary);
+        border-radius: 12px;
+        padding: var(--spacing-2xl);
+        margin-bottom: var(--spacing-2xl);
+        border: 1px solid #e9ecef;
+        transition: all var(--transition-normal);
+    }
+    
+    section:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-gold);
+    }
+    
+    h2 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-lg);
+        font-weight: 600;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 8px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: var(--text-secondary);
+    }
+    
+    input[type="email"],
+    input[type="password"],
+    select {
+        width: 100%;
+        padding: 12px var(--spacing-md);
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-lg);
+        transition: all var(--transition-normal);
+        background-color: var(--bg-primary);
+    }
+    
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.2);
+        transform: translateY(-1px);
+    }
+    
+    button {
+        background: linear-gradient(to right, var(--primary-color), var(--primary-light), var(--primary-color));
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px var(--spacing-sm);
+        font-size: var(--font-size-base);
+        font-weight: bold;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        letter-spacing: 1px;
+    }
+    
+    button:hover {
+        background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-light));
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-gold);
+    }
+    
+    /* SECTION DANGER */
+    section:last-child {
+        background: #ffeaa7;
+        border: 2px solid #e17055;
+        position: relative;
+    }
+    
+    section:last-child::before {
+        content: "⚠️";
+        position: absolute;
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        font-size: var(--icon-size-md);
+    }
+    
+    section:last-child p {
+        color: #c0392b;
+        font-weight: bold;
+        margin-bottom: var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+    
+    .danger {
+        background: linear-gradient(to right, var(--danger-color), var(--accent-color), var(--danger-color));
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px var(--spacing-sm);
+        font-size: var(--font-size-base);
+        font-weight: bold;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        letter-spacing: 1px;
+        animation: subtle-pulse 3s infinite;
+    }
+    
+    .danger:hover {
+        background: linear-gradient(to right, var(--accent-color), var(--danger-color), var(--accent-color));
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-danger);
+    }
+    
+    @keyframes subtle-pulse {
+        0%, 100% {
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
+        }
+        50% {
+            box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+        }
+    }
+    
+    /* RESPONSIVE PARAMÈTRES */
+    @media (max-width: 768px) {
+        .container {
+            margin: var(--spacing-lg);
+            padding: var(--spacing-lg);
+        }
+        
+        h1 {
+            font-size: 2rem;
+        }
+        
+        section {
+            padding: var(--spacing-lg);
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+        }
+        
+        input[type="email"],
+        input[type="password"],
+        select,
+        button {
+            font-size: var(--font-size-base);
+            padding: var(--spacing-md);
+        }
+    }
+}

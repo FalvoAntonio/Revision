@@ -1,0 +1,39 @@
+/* CRÉATION DE COMPTE SPÉCIFIQUE */
+
+.form-groupe {
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+}
+
+.form-groupe label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.form-groupe input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+.input-tel {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.tel-prefix {
+    width: 30%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+}
+
+.tel-input {
+    width: 70%;
+}

@@ -1,0 +1,56 @@
+/* MODALE RECHERCHE */
+
+.Modal-Recherche {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    position: fixed;
+    top: 2%;
+    border-radius: var(--border-radius-lg);
+    border-left: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    background-color: var(--bg-primary);
+    padding: var(--spacing-3xl);
+    width: 30%;
+    right: 0;
+    bottom: 2%;
+    transform: translate(100%, 0);
+    transition: transform var(--transition-slow);
+}
+
+#rechercheInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+#rechercheInput:focus {
+    border-color: #ad7520;
+    box-shadow: 0 0 5px rgba(173, 117, 32, 0.5);
+    outline: none;
+}
+
+/* RESPONSIVE MODAL RECHERCHE */
+@media (max-width: 768px) {
+    .Modal-Recherche {
+        width: 90%;
+        right: 5%;
+        bottom: 5%;
+        top: 5%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .Modal-Recherche {
+        width: 70%;
+        right: 15%;
+        bottom: 15%;
+        top: 15%;
+    }
+}
